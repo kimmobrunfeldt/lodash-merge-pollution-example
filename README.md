@@ -26,7 +26,7 @@ In the package.json, lodash has been specifically locked to vulnerable version `
 
     ```js
     const newObj = {};
-    // newObj.test equals now `true`
+    // newObj.admin equals now `true`
     ```
 
     The attack.json uses this:
