@@ -10,7 +10,7 @@ Other links:
 * https://medium.com/node-modules/what-is-prototype-pollution-and-why-is-it-such-a-big-deal-2dd8d89a93c.
 
 
-## Test it your self
+## Test it yourself
 
 In the package.json, lodash has been specifically locked to vulnerable version `4.6.1`. Also express-validation is specifically using the 1. major version since it used to allow unknown properties in schemas.
 
