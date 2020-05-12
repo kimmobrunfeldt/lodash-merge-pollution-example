@@ -46,6 +46,13 @@ package-lock.json and should install the new security fixes.
 For example `"lodash": "^4.6.1"` in package.json should now install the latest (at this moment) `4.17.15` version
 since the hat character (`^`) allows semver minor and patch updates when the version is >= major 1.
 
+#### package-lock.json dilemma
+
+Locking dependencies with package-lock.json is definitely useful. Your production deployment doesn't
+suddenly fail to a minor/patch update, if you install dependencies with `npm ci`. However it's
+a double-edged sword: keeping versions locked doesn't break your apps functionality, but it might
+allow newly found security vulnerabilities to creep longer in your app.
+
 
 ### Disallow unexpected input
 
